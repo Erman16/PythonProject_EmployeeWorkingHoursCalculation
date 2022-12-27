@@ -6,35 +6,24 @@ import shutil
 import os
 
 
-def forDailyAttendanceChecker():
-    f = open('Daily Attendance Checker/Employee_List/Employees.json', encoding="UTF-8")
+def getEmployees():
+    f = open('Employee_List/Employees.json', encoding="UTF-8")
     data = json.load(f)
     f.close()
     return data
 
 
-def forMonthlyReportCreator():
-    f = open('Monthly Report Creator/Employee_List/Employees.json', encoding="UTF-8")
-    data = json.load(f)
-    f.close()
-    return data
+ForDailyAttendanceDict = getEmployees()
 
 
-ForDailyAttendanceDict = forDailyAttendanceChecker()
-ForMonthlyReportDict = forMonthlyReportCreator()
-
-
-def PrintToExcel(MyName, MyID):
+def PrintToJson(MyName, MyID):
     ForDailyAttendanceDict[MyID] = MyName
     with open("NewEmployee.json", 'w', encoding='UTF-8') as json_file:
         json.dump(ForDailyAttendanceDict, json_file, ensure_ascii=False)
 
     src_path = r"NewEmployee.json"
-    dst_path1 = r"Daily Attendance Checker/Employee_List/Employees.json"
+    dst_path1 = r"Employee_List/Employees.json"
     shutil.copy(src_path, dst_path1)
-
-    dst_path2 = r"Monthly Report Creator/Employee_List/Employees.json"
-    shutil.copy(src_path, dst_path2)
 
     os.remove("NewEmployee.json")
 
@@ -50,11 +39,8 @@ def DeleteFromJson(MyID):
             json.dump(ForDailyAttendanceDict, json_file, ensure_ascii=False)
 
         src_path = r"NewEmployee.json"
-        dst_path1 = r"Daily Attendance Checker/Employee_List/Employees.json"
+        dst_path1 = r"Employee_List/Employees.json"
         shutil.copy(src_path, dst_path1)
-
-        dst_path2 = r"Monthly Report Creator/Employee_List/Employees.json"
-        shutil.copy(src_path, dst_path2)
 
         os.remove("NewEmployee.json")
         return True
@@ -130,7 +116,7 @@ def AddEmployeeToJson():
     MyID = entry_text2.get()
 
     if a.control == 1:
-        PrintToExcel(MyName, MyID)
+        PrintToJson(MyName, MyID)
 
 
 class control3:
