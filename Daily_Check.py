@@ -4,20 +4,12 @@ Linkedln: https://www.linkedin.com/in/ermanyalcin/
 """
 import datetime
 import json
-import numpy as np
-import openpyxl
 from tkinter import *
-import tkinter as tk
 from tkcalendar import Calendar
-from tkinter import ttk, font
-from tkinter import filedialog as fd
-from tkinter.messagebox import showinfo
+from tkinter import font
 from tktimepicker import SpinTimePickerModern
 from tktimepicker import constants
 import os.path
-from babel.dates import format_datetime
-import babel.numbers
-import time
 import os
 
 

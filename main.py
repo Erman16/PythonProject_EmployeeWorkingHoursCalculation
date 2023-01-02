@@ -1,14 +1,6 @@
-import datetime
-import json
-import shutil
-import openpyxl
 import tkinter as tk
 from tkinter import ttk
-import tkinter.font as font
-from tkinter import filedialog as fd
 import os.path
-from babel.dates import format_datetime
-from datetime import datetime
 
 """
 Welcome, this project include 2 different programs that can work separately but uses each other's data.
@@ -39,7 +31,7 @@ def main():
     root.geometry('800x450')
 
     s = ttk.Style()
-    s.configure('.', font=('Helvetica', 13), background='blue', width=20, borderwidth=1,foreground="#FFFFFF",
+    s.configure('.', font=('Helvetica', 13), background='blue', width=20, borderwidth=1,
                 focusthickness=3)
 
     label = tk.Label(root, text="Please Select One Program to Run", font=("Arial", 18))
@@ -54,8 +46,8 @@ def main():
     AddEmployee_button = ttk.Button(root, text='Add Employee', command=lambda: runAddEmploye())
     AddEmployee_button.pack(pady=10)
 
-    AddEmployee_button = ttk.Button(root, text='Close', command=lambda: root.destroy())
-    AddEmployee_button.pack(pady=80)
+    Close_button = ttk.Button(root, text='Close', command=lambda: root.destroy())
+    Close_button.pack(pady=80)
 
     root.mainloop()
 

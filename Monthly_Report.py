@@ -76,7 +76,7 @@ def SaveAsExcel(data, excelname, name, company):
             myI1 = myI1[0] + "." + myI1[1].replace("\n", "")
             myI2 = myI2[0] + "." + myI2[1].replace("\n", "")
 
-            tdelta = (datetime.strptime(myI2, '%H.%M') - datetime.strptime(myI1, '%H.%M')).seconds/3600
+            tdelta = (datetime.strptime(myI2, '%H.%M') - datetime.strptime(myI1, '%H.%M')).seconds / 3600
 
             sheet[boxNameEntrance] = i[1]
             sheet[boxNameExit] = i[2]
@@ -114,13 +114,15 @@ def CopyTheExcel(person, company, getInfo, filePath):
         date = i.split(":")[0]
         enterHour = (i.split(" ")[1]).split("-")[0]
         endHour = (i.split(" ")[1]).split("-")[1]
-        getNecessaryInfo.append([date,enterHour,endHour])
+        getNecessaryInfo.append([date, enterHour, endHour])
 
-    shutil.copy("Monthly_Report_Creator/sample.xlsx", "Monthly_Report_Creator/Result/" + filePath + "/" + person + ".xlsx")
+    shutil.copy("Monthly_Report_Creator/sample.xlsx",
+                "Monthly_Report_Creator/Result/" + filePath + "/" + person + ".xlsx")
     SaveAsExcel(getNecessaryInfo, "Monthly_Report_Creator/Result/" + filePath + "/" + person + ".xlsx", person, company)
 
 
-# -------------------------------
+# ------------------------------------------
+# --------- Get Data From Database ---------
 
 def GetDataFromDatabase(person, path):
     filename = "Monthly_Report_Creator/Add_Employee_Data/" + path + "/" + person + ".txt"
@@ -130,6 +132,9 @@ def GetDataFromDatabase(person, path):
             getInfo.append(line)
     return getInfo
 
+
+# ---------------------------------
+# --------- start Program ---------
 
 def startProg(filePath):
     missingEmployeesData = []

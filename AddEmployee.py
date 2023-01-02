@@ -6,6 +6,8 @@ import shutil
 import os
 
 
+# -------- Get Employees ----------
+
 def getEmployees():
     f = open('Employee_List/Employees.json', encoding="UTF-8")
     data = json.load(f)
@@ -16,6 +18,8 @@ def getEmployees():
 ForDailyAttendanceDict = getEmployees()
 
 
+# ---------------------------------
+# -------- Print To Json ----------
 def PrintToJson(MyName, MyID):
     ForDailyAttendanceDict[MyID] = MyName
     with open("NewEmployee.json", 'w', encoding='UTF-8') as json_file:
@@ -29,10 +33,12 @@ def PrintToJson(MyName, MyID):
 
     root = Tk()
     root.title("Employee Management Page")
-    Label(root, text="Başarılı", font=('Arial 12')).pack(pady=20, padx=20)
+    Label(root, text="Success", font=('Arial 12')).pack(pady=20, padx=20)
     root.mainloop()
 
 
+# ---------------------------------
+# ------- Delete From Json --------
 def DeleteFromJson(MyID):
     try:
         ForDailyAttendanceDict.pop(MyID)
@@ -52,6 +58,9 @@ def DeleteFromJson(MyID):
 class control2:
     control = 0
 
+
+# ---------------------------------
+# ----- Add Employee To Json ------
 
 def AddEmployeeToJson():
     a = control2()
@@ -125,6 +134,9 @@ class control3:
     control = 0
 
 
+# ---------------------------------
+# -------- Delete Employee --------
+
 def DeleteEmployee():
     a = control3()
 
@@ -191,6 +203,8 @@ def DeleteEmployee():
             root.mainloop()
 
 
+# ---------------------------------
+# -------- Choose Program ---------
 class control:
     control = 0
 
@@ -234,4 +248,3 @@ def ChooseProgram():
 
 
 ChooseProgram()
-
