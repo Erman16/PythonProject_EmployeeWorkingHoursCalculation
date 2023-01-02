@@ -82,17 +82,14 @@ def SaveAsExcel(data, excelname, name, company):
             sheet[boxNameExit] = i[2]
             sheet[boxNameExplanation] = ""
             sheet[boxNameTotalWorkHours] = "{0:.2f}".format(tdelta)
-            print("0")
             if tdelta > 10:
                 sheet[boxNameOvertime] = "{0:.2f}".format(tdelta - 10)
                 sheet[boxNameMissing] = "-"
             else:
                 sheet[boxNameOvertime] = "-"
                 sheet[boxNameMissing] = "{0:.2f}".format(10 - tdelta)
-            print("1")
         except:
             sheet["A5"] = "Something Went Wrong!!!"
-        print("2")
         counter += 1
         boxNameDate = "A" + str(counter)
         boxNameDay = "B" + str(counter)
@@ -104,12 +101,10 @@ def SaveAsExcel(data, excelname, name, company):
         boxNameMissing = "H" + str(counter)
         boxNameOvertime = "I" + str(counter)
         xfile.save(excelname)
-        print("3")
 
 
 def CopyTheExcel(person, company, getInfo, filePath):
     getNecessaryInfo = []
-    print(person)
     for i in getInfo:
         date = i.split(":")[0]
         enterHour = (i.split(" ")[1]).split("-")[0]
@@ -207,7 +202,6 @@ def main():
 
             f.close()
             isim = files.split("/")[-1]
-            print(isim)
             saveF = open("Monthly_Report_Creator/Add_Employee_Data/" + NameDate + "/" + isim, "w")
             saveF.write(writedata)
             saveF.close()
@@ -229,6 +223,5 @@ def main():
 
 while True:
     main()
-    print(p1.closeValue)
     if p1.closeValue:
         break
