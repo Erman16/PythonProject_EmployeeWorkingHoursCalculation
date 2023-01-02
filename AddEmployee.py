@@ -28,6 +28,7 @@ def PrintToJson(MyName, MyID):
     os.remove("NewEmployee.json")
 
     root = Tk()
+    root.title("Employee Management Page")
     Label(root, text="Başarılı", font=('Arial 12')).pack(pady=20, padx=20)
     root.mainloop()
 
@@ -57,6 +58,7 @@ def AddEmployeeToJson():
 
     root = Tk()
     root.geometry("600x420")
+    root.title("Employee Management Page")
 
     myLabel = Label(root, text="Add Employee", padx=50, pady=10, font=('Arial 12'))
     myLabel.pack()
@@ -103,9 +105,9 @@ def AddEmployeeToJson():
         root.destroy()
         a.control = 1
 
-    myButton = Button(myCanvas, text="Onayla", padx=60, pady=20, command=Approve, font=('Arial 12'))
+    myButton = Button(myCanvas, text="Submit", padx=60, pady=20, command=Approve, font=('Arial 12'))
     myButton.grid(row=3, column=1, pady=20)
-    myButton = Button(myCanvas, text="Geri Dön", padx=60, pady=20, command=lambda: goBack(), font=('Arial 12'))
+    myButton = Button(myCanvas, text="Back", padx=60, pady=20, command=lambda: goBack(), font=('Arial 12'))
     myButton.grid(row=3, column=0, pady=20)
 
     myCanvas.pack(pady=60)
@@ -128,6 +130,7 @@ def DeleteEmployee():
 
     root = Tk()
     root.geometry("600x420")
+    root.title("Employee Management Page")
 
     myLabel = Label(root, text="Remove Employee", padx=50, pady=10, font=('Arial 12'))
     myLabel.pack()
@@ -159,9 +162,9 @@ def DeleteEmployee():
         root.destroy()
         a.control = 1
 
-    myButton = Button(myCanvas, text="Onayla", padx=60, pady=20, command=Approve, font=('Arial 12'))
+    myButton = Button(myCanvas, text="Submit", padx=60, pady=20, command=Approve, font=('Arial 12'))
     myButton.grid(row=2, column=1, pady=20)
-    myButton = Button(myCanvas, text="Geri Dön", padx=60, pady=20, command=lambda: goBack(), font=('Arial 12'))
+    myButton = Button(myCanvas, text="Back", padx=60, pady=20, command=lambda: goBack(), font=('Arial 12'))
     myButton.grid(row=2, column=0, pady=20)
 
     myCanvas.pack(pady=60)
@@ -175,11 +178,15 @@ def DeleteEmployee():
     if a.control == 1:
         if returnVal:
             root = Tk()
+            root.title("Employee Management Page")
+
             Label(root, text="Deleted Successfully", font=('Arial 12')).pack(pady=20, padx=20)
             root.mainloop()
 
         else:
             root = Tk()
+            root.title("Employee Management Page")
+
             Label(root, text="Some Error Occurred!!!", font=('Arial 12')).pack(pady=20, padx=20)
             root.mainloop()
 
@@ -192,6 +199,7 @@ def ChooseProgram():
     a = control()
 
     root = Tk()
+    root.title("Employee Management Page")
     helv12 = tkFont.Font(family='Helvetica', size=12)
 
     myLabel2 = Label(root, text="Please select", padx=50, pady=10, font=('Helvetica 12'))
@@ -213,7 +221,7 @@ def ChooseProgram():
         a.control = 1
         root.destroy()
 
-    myButton = Button(root, text="Onayla", padx=60, pady=20, command=Approve, font=('Helvetica 12'))
+    myButton = Button(root, text="Submit", padx=60, pady=20, command=Approve, font=('Helvetica 12'))
     myButton.pack(pady=20)
 
     root.mainloop()
