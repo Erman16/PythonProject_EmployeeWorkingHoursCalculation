@@ -39,7 +39,7 @@ def main():
     root.geometry('800x450')
 
     s = ttk.Style()
-    s.configure('.', font=('Helvetica', 13), background='blue', width=20, borderwidth=1,
+    s.configure('.', font=('Helvetica', 13), background='blue', width=20, borderwidth=1,foreground="#FFFFFF",
                 focusthickness=3)
 
     label = tk.Label(root, text="Please Select One Program to Run", font=("Arial", 18))

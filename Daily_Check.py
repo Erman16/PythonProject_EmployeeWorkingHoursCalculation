@@ -128,6 +128,8 @@ def main():
 
             file.close()
         root = Tk()
+        root.title(EmplooyeesDict[i] + " Page")
+
         myLabel = Label(root, text=EmplooyeesDict[i], padx=50, pady=50, font='Arial 12')
         myLabel.pack()
 
@@ -157,8 +159,10 @@ def main():
 
         myLabel = Label(root, "", padx=500, pady=10)
         myLabel.pack()
-        myButton = Button(root, text="Onayla", padx=60, pady=20, command=lambda: getTimes(), font='Arial 12')
+        myButton = Button(root, text="Submit", padx=60, pady=20, command=lambda: getTimes(), font='Arial 12')
         myButton.pack()
+        myButton2 = Button(root, text="Skip", padx=60, pady=20, command=lambda: root.quit(), font='Arial 12')
+        myButton2.pack()
         root.mainloop()
         root.destroy()
 
